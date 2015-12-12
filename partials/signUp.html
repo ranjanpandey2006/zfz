@@ -1,0 +1,22 @@
+<div align="center" class="box-style navbar navbar-default navbar-inverse">
+	<h2 style="color:#00CC99">Sign up as Customer</h2><br ng-hide="messageOrErrorSignup">
+	<alert type="danger" ng-show="messageOrErrorSignup" style="background-color:#fa39c3;font-weight:bold;font-size:18px;">{{messageOrErrorSignup}}</alert>
+	<div class="container" align="left">
+		        <div class="row">
+		            <div class="col-sm-6 col-md-3 col-lg-3" style="color:#00CC99" align="center">Full Name</div>
+		            <div class="col-sm-6 col-md-3 col-lg-3" align="center"><input type="text" ng-model="user.userName" class="form-control"></input></div>
+		            <div class="col-sm-6 col-md-3 col-lg-3" style="color:#00CC99" align="center">Password</div>
+		            <div class="col-sm-6 col-md-3 col-lg-3" align="center"><input type="password" ng-model="user.password" class="form-control"></input></div>
+				</div><br>
+				<div class="row" >
+					<div class="col-sm-6 col-md-3 col-lg-3" style="color:#00CC99" align="center">Email Id</div>
+		            <div class="col-sm-6 col-md-3 col-lg-3" align="center"><input type="text" ng-model="user.emailId" class="form-control"></input></div>
+					<div class="col-sm-6 col-md-3 col-lg-3" style="color:#00CC99" align="center">Mobile Number</div>
+		            <div class="col-sm-6 col-md-3 col-lg-3" align="center"><input type="text" ng-model="user.mobileNo" class="form-control" placeholder="with country code"></input></div>      
+		        </div>
+				
+				<div class="row" style="margin-top:20px">
+					<div align="right"><button type="button" class="btn-lg btn-primary" ng-click="register();">Register</button></div>
+				</div>
+    </div>
+</div>

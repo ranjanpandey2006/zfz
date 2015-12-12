@@ -1,0 +1,228 @@
+<div ng-controller="MainCtrl" ng-init="checkOutdata()" class="box-style table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
+		<label class="partial-content-header">Cart Summary</label>
+	    <table class="table table-hover">
+	    	<tr ng-show="!cartHasElement">  
+	            <td align="center"><h3>Your cart is empty</h3></td>
+	        </tr>
+	        <tr ng-show="cartHasElement">  
+	            <th class="partial-content-header">Description</th>
+	            <th class="partial-content-header">Quantity</th>
+	            <th ></th>
+	            <th class="partial-content-header">Cost</th>
+	           
+	        </tr>
+	        <tr ng-repeat="item in invoice.items" ng-show="cartHasElement">
+	            <td class="partial-content-body">{{item.name}}</td>           
+	            <td class="partial-content-body" ng-show="!item.editQty" >{{item.qty}}</td>
+	            <td class="partial-content-body" ng-show="item.editQty"><input style="width:30px" type="text" value="{{item.qty}}" ng-model="item.qty"/></td>
+	            <td class="partial-content-body" ng-show="!item.editQty" width="10%"><a style="cursor:pointer" ng-model="item.editQty" ng-click="editQuantity($index)">Edit</a></td>
+	            <td class="partial-content-body" ng-show="item.editQty" width="10%"><a style="cursor:pointer" ng-click="updateQty($index,item.qty)">Update</a></td>
+	            <td class="partial-content-body">{{item.cost*item.qty | number:2 | currency}}</td>
+	            <td class="partial-content-body">
+	               <b> <a href ng-click="removeItem($index)" class="btn btn-danger">X</a> </b>
+	            </td>
+	        </tr>
+	        <tr ng-show="cartHasElement" >
+	            <td></td>
+	            <td></td>
+	            <td class="partial-content-body"><b>Total </b></td>
+	            <td class="partial-content-body"><b>{{total() | currency}}</b></td>
+	            
+	        </tr>
+	    </table>
+	    </div>
+	    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" ng-show="cartHasElement">
+	    <label class="partial-content-header">Add Address</label>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Full Name
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.name" class="form-control" />
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Email Address
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.email" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Contact Number
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.mobile" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Address Line 1
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.addLine1" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Address Line 2
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.addLine2" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				City
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.city" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				State
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.state" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Pincode
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.pin" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Country
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    				<input type="text" ng-model="address.country" class="form-control"/>
+	    		</div>
+	    	</div><br>
+	    	
+	    </div>
+    </div><br>
+    
+    <div class="row" ng-show="cartHasElement && showReview">
+    	<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
+    		<label class="partial-content-header">
+    			Review Order Details
+    		</label>
+    		<table class="table table-hover">
+	    	
+	        <tr >  
+	            <th class="partial-content-header">Description</th>
+	            <th class="partial-content-header">Quantity</th>
+	            
+	            <th class="partial-content-header">Cost</th>
+	           
+	        </tr>
+	        <tr ng-repeat="item in invoice.items" >
+	            <td class="partial-content-body">{{item.name}}</td>           
+	            <td class="partial-content-body" >{{item.qty}}</td>
+	            
+	            <td class="partial-content-body">{{item.cost*item.qty | number:2 | currency}}</td>
+	            
+	        </tr>
+	        <tr >
+	            
+	            <td></td>
+	            <td class="partial-content-body"><b>Total </b></td>
+	            <td class="partial-content-body"><b>{{total() | currency}}</b></td>
+	            
+	        </tr>
+	        <tr >
+	            
+	            <td colspan="3">
+	            	<label>You can edit your order above, and click on confirm button</label>
+	            </td>
+	            
+	        </tr>
+	    </table>
+    	</div>
+    	<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
+    		<label class="partial-content-header">
+    			Review Address Details
+    		</label>
+    		<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Full Name
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				{{address.name}}
+	    			</label>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Email Address
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				{{address.email}}
+	    			</label>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Contact Number
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				{{address.mobile}}
+	    			</label>
+	    		</div>
+	    	</div><br>
+	    	<div class="row">
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				Address Line 1
+	    			</label>
+	    		</div>
+	    		<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+	    			<label>
+	    				{{address.addLine1}}
+	    			</label>
+	    		</div>
+	    	</div><br>
+	    <div class="row">		
+    	<div class="row">
+    		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12" >
+	    		<button class="btn btn-primary" ng-click="placeOrder(invoice.items,address)">Place Order</button>
+	    	</div>
+    	</div>
+    </div>
+</div>

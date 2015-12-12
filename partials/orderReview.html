@@ -1,0 +1,144 @@
+<div ng-include="'partials/menu.html'"></div>
+<div class="box-style">
+	<h3 style="color:#00CC99">Order Review</h3>
+	<label>Total Amount {{totalAmount}} $</label>
+	<!--<br ng-hide="messageOrErrorLogin">
+	<alert type="danger" ng-show="messageOrErrorLogin" style="background-color:#fa39c3;font-weight:bold;font-size:18px;">{{messageOrErrorLogin}}</alert>
+	-->
+	<div class="container">
+		        <div class="row box-style">
+					<tabset>
+						<tab heading="Todays" active="tabToday.active" disabled="tabToday.disabled"><br>
+						<h4  style="color:#00CC99">Todays Order Review</h4>
+							<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="item in items">
+							  <div ng-show="item.todayShow" class="box-style">
+								<span ng-click="cancelThisOrder($index)" class="glyphicon glyphicon-remove-circle" style="float:right;cursor:pointer;color:red;"></span>
+								<h5 >Provider Name : &nbsp;{{item.providerName}} </h5>
+								<h5 >Product : &nbsp;{{item.todayMenu}} </h5>
+								<h5 >Quantity : &nbsp;{{item.selectedQtyTodays}} </h5>
+								<h5 >Total : &nbsp;{{item.totalPriceToday}} $ </h5>
+								<h5 >Comment : &nbsp;{{item.todayMenuComment}} </h5>
+							  </div>
+							</div>
+						</tab>
+						<tab heading="Tomorrows" active="tabTomorrow.active" disabled="tabTomorrow.disabled"><br>
+						<h4  style="color:#00CC99">Tomorrows Order Review</h4>
+							<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="item in items">
+							<div ng-show="item.tomorrowShow" class="box-style">
+								<span ng-click="cancelThisOrder($index)" class="glyphicon glyphicon-remove-circle" style="float:right;cursor:pointer;color:red;"></span>
+								<h5 >Provider Name : &nbsp;{{item.providerName}} </h5>
+								<h5 >Product : &nbsp;{{item.tomorrowMenu}} </h5>
+								<h5 >Quantity : &nbsp;{{item.selectedQtyTomorrows}} </h5>
+								<h5 >Total : &nbsp;{{item.totalPriceTomorrow}} $ </h5>
+								<h5 >Comment : &nbsp;{{item.tomorrowMenuComment}} </h5>
+							</div>
+							</div>
+						</tab>
+						<tab heading="Address" active="false"><br>
+								<h4  style="color:#00CC99">Delivery Address</h4>
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Full Name
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.name" class="form-control" />
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Email Address
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.email" class="form-control"/>
+										</div>
+									</div><br>
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Contact Number
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.mobile" class="form-control" placeholder="with country code"/>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Address Line 1
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.addLine1" class="form-control"/>
+										</div>
+									</div><br>
+									
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Address Line 2
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.addLine2" class="form-control"/>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												City
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.city" class="form-control"/>
+										</div>
+									</div><br>
+									
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												State
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.state" class="form-control"/>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Pincode
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.pin" class="form-control"/>
+										</div>
+									</div><br>
+									
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+											<label>
+												Country
+											</label>
+										</div>
+										<div class="col-sm-12 col-xs-12 col-md-6 col-lg-3" >
+												<input type="text" ng-model="address.country" class="form-control"/>
+										</div>
+									</div>
+								
+						</tab>
+					 </tabset>
+		            
+		        </div>
+				<div class="row" style="margin-top:20px">
+					<div align="right"><button type="button" class="btn-lg btn-primary" ng-click="confirmOrder();">Confirm Order</button></div>
+				</div>
+    </div>
+</div>
+<div class="row" align="center">
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<footer class="navbar navbar-default navbar-inverse">
+			<p style="color:#00CC99;" >
+				© 2015 Powered by ARIZONA SYSTEM. All rights reserved.<br>
+					Your food partner |&nbsp;Call us at 1-623-251-6565
+			</p>
+			
+		</footer>
+</div>
+</div>

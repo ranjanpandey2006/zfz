@@ -1,0 +1,70 @@
+<div ng-include="'partials/menu.html'"></div>
+<div class="box-style" ng-init="fetchMenusForUpdate()">
+	<h3 style="color:#00CC99">Add/Update Menu</h3>
+	<alert type="success" ng-show="updatedOrAdded" style="font-size:18px;font-weight:bold;text-align:center;color:#0099FF;">Menu has been successfully added/updated/deleted !!!</alert><br ng-show="updatedOrAdded">
+	<div class="container">
+	        <div class="row">	
+	            <div class="col-sm-12 col-md-6 col-lg-6">Today's Menu</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea ng-model="fetchedMenusObject.todayMenu" class="form-control"></textarea></div>
+	        </div><br>
+			<div class="row">
+			    <div class="col-sm-12 col-md-6 col-lg-6">Today's Menu Unit Price</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea ng-model="fetchedMenusObject.todayMenuUnitPrice" class="form-control"></textarea></div>
+			</div> <br>
+			<div class="row">
+			    <div class="col-sm-12 col-md-6 col-lg-6">Today's Menu Picture Url</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea ng-model="fetchedMenusObject.imageUrl" class="form-control"></textarea></div>
+			</div> <br> 
+			<div class="row">
+	            <div class="col-sm-12 col-md-6 col-lg-6">Tomorrow's Menu</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea ng-model="fetchedMenusObject.tomorrowMenu" class="form-control"></textarea></div>
+			</div><br>
+			<div class="row">
+	            <div class="col-sm-12 col-md-6 col-lg-6">Tomorrow's Menu Unit Price</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea type="text" ng-model="fetchedMenusObject.tomorrowMenuUnitPrice" class="form-control"></textarea></div>
+			</div><br>
+			<div class="row">
+			    <div class="col-sm-12 col-md-6 col-lg-6">Tomorrow's Menu Picture Url</div>
+	            <div class="col-sm-12 col-md-6 col-lg-6"><textarea ng-model="fetchedMenusObject.imgUrlTomorrow" class="form-control"></textarea></div>
+			</div> <br>
+			<div class="row" >
+	            <div class="col-sm-6 col-md-4 col-lg-2" ><button type="button" class="btn btn-primary btn-lg" ng-click="addUpdateMenu();">Add/Update Menu</button></div>
+	        </div><br>
+    </div>
+<!-- <div ng-show="result.jobsObj.length">
+		<h3>Available Jobs</h3>
+		<div class="bs-example">
+		    <table class="table table-striped">
+		        <thead>
+		            <tr>
+		                <th>Job Id</th>
+		                <th>Job Description</th>
+		                <th>Technology</th>
+		                <th>Posted Date</th>
+		                <th>Expiry Date</th>
+		                <th>Experience</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr ng-repeat="j in result.jobsObj">
+		                <td>{{j.ID}}</td>
+		                <td>{{j.description}}</td>
+		                <td>{{j.technology}}</td>
+		                <td>{{j.posted_date}}</td>
+		                <td>{{j.expiry_date}}</td>
+		                <td>{{j.experience}}</td>
+		            </tr>
+		        </tbody>
+		    </table>
+</div>
+</div>-->
+<div class="row" align="center">
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+		<footer class="navbar navbar-default navbar-inverse">
+			<p style="color:#00CC99;" >
+				© 2015 Powered by ARIZONA SYSTEM. All rights reserved.<br>
+					Your food partner |&nbsp;Call us at 1-623-251-6565
+			</p>
+		</footer>
+</div>
+</div>

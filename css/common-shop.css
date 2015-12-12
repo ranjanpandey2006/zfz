@@ -1,0 +1,171 @@
+/*shop css start*/
+
+body {
+  background-image: url("http://i.imgur.com/VKTPd2M.jpg");
+}
+
+hr {
+    margin:20px 0;
+} 
+h3 { color:#1758AA}
+h3 span {font-size:14px; display:block;}
+span[ng-click] {
+        cursor: pointer;
+    }
+
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+.bs-example{
+	margin: 20px;
+}
+a.dropdown-toggle {
+	cursor: pointer;
+}
+.navbar {
+	margin-top: 0px;
+}
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.navbar-nav {
+	font-size: 18px;
+}
+p {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 1.21em;
+  line-height: 1.6;
+  margin-bottom: 1.35em;
+  color: #444;
+  text-rendering: optimizeLegibility;
+}
+.partial-content-header {
+	font-size: 1.2em;
+	color: #444;
+}
+.partial-content-body {
+	font-size: 1.1em;
+	color: #444;
+}
+.box-style-small {
+  padding: 20px 20px 50px;
+  margin-bottom: 25px;
+  height: 285px;
+}
+.box-style { 
+  margin: 10px 10 10px 10px;
+  padding: 15px;
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background-color: #FFF;
+ 
+  -moz-box-shadow: 0 5px 20px rgba(105, 108, 109, .3), 0 0 8px 5px rgba(208, 223, 226, .4) inset;
+  
+  -webkit-box-shadow: 0 5px 20px rgba(105, 108, 109, .3), 0 0 8px 5px rgba(208, 223, 226, .4) inset;
+  box-shadow: 0 5px 20px rgba(105, 108, 109, .3), 0 0 8px 5px rgba(208, 223, 226, .4) inset;
+}
+.alert-danger {
+	background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+}
+.panel-primary>.panel-heading {
+	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+}
+
+.label {
+  font-size: 1.2em;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 200px;
+    height: 65px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+.button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #1C7BC0 0,#0f0f00 100%);
+ }
+.container {
+	width:100%;
+}
+
+.btn-lg{
+ width: 205px;
+ text-align: center;
+}
+.btn-lg1:hover  {
+   -webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg); 
+}
+.floating {
+  -webkit-animation-name: Floatingx;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-name: Floating;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease-in-out;
+}
+.modal-backdrop{
+	z-index : -100;
+}
+.modal {
+    /*! adjust transition time */
+    -webkit-transition: all 1s ease-out !important;
+    -moz-transition: all 1s ease-out !important;
+    -o-transition: all 1s ease-out !important;
+    transition: all 1s ease-out !important;
+}
+.modal.in .modal-dialog {
+    /*! editthis transform to any transform you want */
+    -webkit-transform: scale(1, 1) !important;
+    -ms-transform: scale(1, 1) !important;
+    transform: scale(1, 1) !important;
+}
+.modal.fade .modal-dialog {
+    /*! disable sliding from left/right/top/bottom */
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+.menu-table .box-style{
+	background-image: url("http://mohittentandelectric.com/WEDDING_files/website-background-3a09.jpg");
+}
+.jumbotron{
+	background-image: url("https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-7-full.jpg"); 
+}
+.fancybox-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background: url("https://cdn.elegantthemes.com/images/fancybox/fancybox.png") -40px 0;
+  cursor: pointer;
+  z-index: 1103;
+  display: none;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color: #00CC99;
+}

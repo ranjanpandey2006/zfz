@@ -1,0 +1,137 @@
+<div ng-include="'partials/menu.html'"></div>
+<div  ng-init="fetchOrdersForUpdate()" class="box-style">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<h3 style="color:#00CC99">Placed Orders</h3>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<button class="btn btn-primary" ng-click="downloadAsExcel()">Export as excel</button>
+		</div>
+	</div>
+	
+    <div >
+		<div class="table-responsive">
+		    <table class="table table-striped table-bordered">
+		        <thead>
+		            <tr>
+		                <td align="center">Order Id</td>
+		                <td align="center">Order Date</td>
+						<td align="center">Order Amount($)</td>
+						<td align="center">Order Status</td>
+						<td align="center">Order Details</td>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr ng-repeat="j in ordersFetched">
+		                <td >{{j.orderid}}</td>
+		                <td >{{j.orderdate}}</td>
+		                <td >{{j.totalorderprice}}</td>
+						<td >{{j.orderstatus}}</td>
+						<td align="center">
+							<span class="glyphicon glyphicon-new-window" style="color:#FF6600" data-target="#adminorderdetail" data-toggle="modal"
+							ng-click="setAdminOrderDetail(j)" title="Order Details"></span>
+						</td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</div>
+	</div><br>
+
+	<div class="row" align="center">
+			<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 ">
+					<footer class="navbar navbar-default navbar-inverse">
+						<p style="color:#00CC99;" >
+							© 2015 Powered by ARIZONA SYSTEM. All rights reserved.<br>
+								Your food partner |&nbsp;Call us at 1-623-251-6565
+						</p>
+						
+					</footer>
+			</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="adminorderdetail" data-backdrop="static" data-keyboard="false" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="navbar navbar-default navbar-inverse">
+        <button type="button" class="close btn btn-info" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true" style="color:#fff">&times;</span></button>
+        <h3 style="color:#00CC99" id="myModalLabel" >Order Details</h3>
+      </div>
+      <div class="modal-body">
+			<div class="row box-style">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box-style">
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+							<label>
+								Today's Order
+							</label>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" style="word-wrap:break-word;">
+								{{orderDetail.todaysmenu}}
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+							<label>
+								Today's Qty
+							</label>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" style="word-wrap:break-word;">
+								{{orderDetail.todaysqty}}
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+							<label>
+								Tomorrow's Order
+							</label>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" style="word-wrap:break-word;">
+								{{orderDetail.tomorrowsmenu}}
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+							<label>
+								Tomorrow's Qty
+							</label>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" style="word-wrap:break-word;">
+								{{orderDetail.tomorrowsqty}}
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+							<label>
+								Delivery Address
+							</label>
+						</div>
+						<div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" style="word-wrap:break-word;">
+								{{orderDetail.address}}
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" >
+							<label>
+								Order Status
+							</label>
+						</div>
+						<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" style="word-wrap:break-word;">
+								<input class="form-control" type="text" ng-model="orderDetail.orderstatus" />
+						</div>
+						<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" >
+							<button class="btn btn-primary" ng-click="updateOrderStatus()">Update</button>
+						</div>
+					</div><br>
+				</div>
+					
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

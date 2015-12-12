@@ -1,0 +1,62 @@
+User table
+
+userId , userName, password, emailId, mobileNo, dateOfRegistration
+
+
+Menu table
+
+menuId, todayMenu, tomorrowMenu, todayMenuUnitPrice, tomorrowMenuUnitPrice
+
+
+Order table
+
+orderId, numberOfLunchForToday, numberOfLunchForTomorrow, isTodayLunchRequired, isTomorrowLunchRequired, comments, orderDate, isPaymentDoneForToday, paymentDueAmount, paymentDoneAmount, userId
+
+
+CREATE TABLE MenuTable
+(
+menuId int NOT NULL AUTO_INCREMENT,
+todayMenu varchar(3000),
+tomorrowMenu varchar(3000),
+todayMenuUnitPrice double,
+tomorrowMenuUnitPrice double,
+imageUrl varchar(1000),
+PRIMARY KEY (menuId)
+)
+
+CREATE TABLE UserTable
+(
+userId int NOT NULL AUTO_INCREMENT,
+userName varchar(200),
+password varchar(100),
+emailId varchar(200),
+mobileNo varchar(50),
+dateOfRegistration DATETIME,
+PRIMARY KEY (userId)
+)
+
+CREATE TABLE OrderTable
+(
+orderId int NOT NULL AUTO_INCREMENT,
+numberOfLunchForToday int,
+numberOfLunchForTomorrow int,
+isTodayLunchRequired varchar(10),
+isTomorrowLunchRequired varchar(10),
+comments varchar(3000),
+isPaymentDoneForToday varchar(10),
+paymentDueAmount double,
+paymentDoneAmount double,
+orderDateTime DATETIME,
+userId int,
+PRIMARY KEY (orderId)
+)
+
+{
+"selectedQtyTodays":1,
+"selectedQtyTomorrows":2,
+"todaysLunchOption":"YES",
+"tomorrowsLunchOption":"NO",
+"todayMenuComment":"commentsToday",
+"tomorrowMenuComment":"commentsToday",
+"userId":111
+}

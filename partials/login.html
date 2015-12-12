@@ -1,0 +1,20 @@
+<div align="center" class="box-style navbar navbar-default navbar-inverse">
+	<h2 style="color:#00CC99">Login</h2><br ng-hide="messageOrErrorLogin">
+	<alert type="danger" ng-show="messageOrErrorLogin" style="background-color:#fa39c3;font-weight:bold;font-size:18px;">{{messageOrErrorLogin}}</alert>
+	
+	<div class="container">
+		        <div class="row">
+		            <div class="col-sm-6 col-md-4 col-lg-3" style="color:#00CC99" align="center">Email Id</div>
+					
+		            <div class="col-sm-6 col-md-4 col-lg-3"  align="center"><input type="text" ng-model="user.emailId" class="form-control"></input></div>
+		            
+		            <div class="col-sm-6 col-md-4 col-lg-3" style="color:#00CC99" align="center">Password</div>
+		            
+		            <div class="col-sm-6 col-md-4 col-lg-3" align="center"><input type="password" ng-model="user.password" class="form-control"></input></div>
+		           
+		        </div>
+				<div class="row" style="margin-top:20px">
+					<div align="right"><button type="button" class="btn-lg btn-primary" ng-click="login();">Login</button></div>
+				</div>
+    </div>
+</div>
